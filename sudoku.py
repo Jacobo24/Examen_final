@@ -28,22 +28,22 @@ def find_empty(su):
     for i in range(len(su)):
         for j in range(len(su[0])):
             if su[i][j] == 0:
-                return (i, j)  # row, col
+                return (i, j)  # fila, columna
 
     return None
 
 def valid(su, num, pos):
-    # Check row
+    # Mirar fila
     for i in range(len(su[0])):
         if su[pos[0]][i] == num and pos[1] != i:
             return False
 
-    # Check column
+    # Mirar columna
     for i in range(len(su)):
         if su[i][pos[1]] == num and pos[0] != i:
             return False
 
-    # Check box
+    # Mirar caja
     box_x = pos[1] // 3
     box_y = pos[0] // 3
 
@@ -71,8 +71,7 @@ def solve(su):
             su[row][col] = 0
 
     return False
-
+    
 print_sudoku(sudoku)
 solve(sudoku)
 print("____________________")
-print_sudoku(sudoku)
