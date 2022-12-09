@@ -1,25 +1,13 @@
-def operacion():
-    print("La operacion es: (ax + b) ^n")
-    a = int(input("Ingrese el primer numero: "))
-    print("Ingrese el primer numero: ")
-    b = int(input("Ingrese el segundo numero: "))
-    print("Ingrese el segundo numero: ")
-    n = int(input("Ingrese el exponente: "))
-    x = int(input("Incógnita: "))
-    print("Ingrese el exponente: ")
+import sympy
 
-    if n == 0:
-        return 1
-    elif n == 1:
-        return a+b
-    elif a == 0:
-        return b^n
-    elif b == 0:
-        return a
-    elif a == 1:
-        return (1+b)^n
-    elif b == 1:
-        return a^n
-    else:
-        return (a*x + b)^n
-    expand (a*x + b)^n
+def operacion(a, b, n):
+    x = sympy.Symbol('x')
+    polinomio = ((a*x+b)^n)
+    for i in range(n):
+        polinomio += a[i]*x^i
+    print("Polinomio: ", polinomio)
+    print("Valor en b: ", polinomio.subs(x, b))
+    print("Valor en a: ", polinomio.subs(x, a))
+a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+b = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+n = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
