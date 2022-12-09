@@ -1,4 +1,4 @@
-import sympy
+import sympy # Importo la libreria sympy
 
 def operacion(a, b, n):
     x = sympy.Symbol('x')
