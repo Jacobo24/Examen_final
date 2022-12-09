@@ -55,23 +55,20 @@ def decryptRailFence(cipher, key):
             (index < len(cipher))):
                 rail[i][j] = cipher[index]
                 index += 1
-    # now read the matrix in
-    # zig-zag manner to construct
-    # the resultant text
+    # lee la matriz
+    # el texto resultante
     result = []
     row, col = 0, 0
     for i in range(len(cipher)):
-        # check the direction of flow
+        # mirar la dirreccion
         if row == 0:
             dir_down = True
         if row == key-1:
             dir_down = False
-        # place the marker
+        # coloco el marcador
         if (rail[row][col] != '*'):
             result.append(rail[row][col])
             col += 1
-        # find the next row using
-        # direction flag
         if dir_down:
             row += 1
         else:
