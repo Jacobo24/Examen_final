@@ -15,40 +15,33 @@ def encryptRailFence(text, key):
         # llenar el alfabeto correspondiente
         rail[row][col] = text[i]
         col += 1
-        # find the next row using
-        # direction flag
+        # encuentra la primera fila
+        
         if dir_down:
             row += 1
         else:
             row -= 1
-    # now we can construct the cipher
-    # using the rail matrix
+    # usando la matriz rail
     result = []
     for i in range(key):
         for j in range(len(text)):
             if rail[i][j] != '\n':
                 result.append(rail[i][j])
     return("" . join(result))
-# This function receives cipher-text
-# and key and returns the original
-# text after decryption
 def decryptRailFence(cipher, key):
     rail = [['\n' for i in range(len(cipher))]
                 for j in range(key)]
-    # to find the direction
+    # encontrar la dirección
     dir_down = None
     row, col = 0, 0
-    # mark the places with '*'
     for i in range(len(cipher)):
         if row == 0:
             dir_down = True
         if row == key - 1:
             dir_down = False
-        # place the marker
         rail[row][col] = '*'
         col += 1
-        # find the next row
-        # using direction flag
+        # encuentra la siguiente columna
         if dir_down:
             row += 1
         else:
